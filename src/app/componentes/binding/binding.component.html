@@ -1,0 +1,21 @@
+<h2>Binding</h2>
+
+<p [appResaltar]="'green'">Hola, {{ nombre }}</p>
+
+<input value="{{nombre | uppercase}}" *ngIf="nombre">
+
+<input [value]="nombre" (keyup)="nombre = $event.target.value">
+
+<input name="n" [(ngModel)]="nombre">
+
+<div [appResaltar]="'red'">La suma de {{numero}} y {{numero2}} es {{suma(numero,numero2)}}</div>
+
+<button (click)="cambiarNombre($event);">Haz Click</button>
+
+{{ numero | exp:numero2 }}
+
+<ul>
+  <li *ngFor="let usu of usuarios | edadMinima:17" >
+    {{ usu.nombre }}: {{ usu.edad }}
+  </li>
+</ul>

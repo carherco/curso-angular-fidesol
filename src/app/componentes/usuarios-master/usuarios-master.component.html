@@ -1,0 +1,39 @@
+<h2>CRUD de usuarios 2</h2>
+
+<div>
+  <h3>Añadir usuario</h3>
+  <div><label>Nombre: </label><input name="name" [(ngModel)]="usuarioNuevo.name"></div>
+  <div><label>Email: </label><input name="email" [(ngModel)]="usuarioNuevo.email"></div>
+  <div><label>Teléfono: </label><input name="phone" [(ngModel)]="usuarioNuevo.phone"></div>
+  <button (click)="anyadirUsuario()" >Añadir</button>
+</div>
+
+<div>
+    <h3>Listado</h3>
+    <label>Búsqueda por email: </label><input #search>
+    <table>
+      <thead>
+        <tr>
+          <th>Id</th>
+          <th>Nombre</th>
+          <th>Email</th>
+          <th>Teléfono</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let usuario of usuarios"
+            (click)="seleccionarUsuario(usuario)"
+            [class.seleccionado]="usuario.id === usuarioSeleccionado?.id">
+          <td>{{ usuario.id }}</td>
+          <td>{{ usuario.name | uppercase }}</td>
+          <td>{{ usuario.email }}</td>
+          <td>{{ usuario.phone }}</td>
+          <td><button (click)="eliminarUsuario(usuario)">Eliminar</button></td>
+        </tr>
+      </tbody>
+    </table>
+</div>
+
+
+<app-usuarios-detalle *ngIf="usuarioSeleccionado" [usuario]="usuarioSeleccionado" (eliminarEvento)="eliminarUsuario($event)" ></app-usuarios-detalle>

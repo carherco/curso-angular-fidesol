@@ -1,0 +1,53 @@
+<h2>Formulario dirigido por plantilla</h2>
+
+{{ usuario | json }}
+<div>
+  <form (ngSubmit)="enviar(); formulario.reset()" #formulario="ngForm">
+    <div>
+      <label for="name">Name: </label>
+      <input type="text" id="name" name="name" minlength="6" email [(ngModel)]="usuario.name" #name="ngModel">
+      <div *ngIf="name.invalid">
+        <div *ngIf="name.errors.email" class="dander">El nombre debe ser un email</div>
+        <div *ngIf="name.errors.minlength" class="dander">El nombre debe tener al menos 6 caracteres</div>
+      </div>
+    </div>
+
+    <div>
+      <label for="username">Username: </label>
+      <input type="text" id="username" name="username" required [(ngModel)]="usuario.username" #username>
+    </div>
+
+    <div>
+      <label for="email">Email: </label>
+      <input type="email" id="email" name="email" [(ngModel)]="usuario.email">
+    </div>
+
+    <h4>Address</h4>
+    <div>
+      <div>
+        <label for="street">Street:
+          <input type="text" id="street" name="street" [(ngModel)]="usuario.address.street">
+        </label>
+      </div>
+      <div>
+        <label for="city">City:
+          <input type="text" id="city" name="city" [(ngModel)]="usuario.address.city">
+        </label>
+      </div>
+      <div>
+        <label for="zipcode">Zip Code:
+          <input type="text" id="zipcode" name="zipcode" [(ngModel)]="usuario.address.zipcode">
+        </label>
+      </div>
+    </div>
+
+    <button type="submit" [disabled]="formulario.invalid">Submit</button>
+
+  </form>
+</div>
+
+<button (click)="volver()">Volver al listado</button>
+
+<div *ngIf="formulario.submitted">
+    <h2>¡Gracias!</h2>
+</div>
