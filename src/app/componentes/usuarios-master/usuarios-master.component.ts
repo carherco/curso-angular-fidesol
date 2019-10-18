@@ -24,6 +24,7 @@ export class UsuariosMasterComponent implements OnInit {
   search: ElementRef;
 
   constructor(private servicio: UsuarioService) {
+    console.log('constructor del master');
     this.usuarioNuevo = new Usuario(this.lastId);
 
     this.usuarios$ = this.servicio.getAll();
@@ -31,6 +32,7 @@ export class UsuariosMasterComponent implements OnInit {
   }
 
   ngOnInit() {
+    console.log('ngOnInit del master');
 
     fromEvent(this.search.nativeElement, 'keyup')
     .pipe(
@@ -68,6 +70,34 @@ export class UsuariosMasterComponent implements OnInit {
 
   // ngOnDestroy() {
   //   this.suscripcion.unsuscribe();
+  // }
+
+  // ngOnChanges() {
+  //   console.log('ngOnChanges del master');
+  // }
+
+  // ngDoCheck() {
+  //   console.log('ngDoCheck del master');
+  // }
+
+  // ngAfterContentInit() {
+  //   console.log('ngAfterContentInit del master');
+  // }
+
+  // ngAfterContentChecked() {
+  //   console.log('ngAfterContentChecked del master');
+  // }
+
+  // ngAfterViewInit() {
+  //   console.log('ngAfterViewInit del master');
+  // }
+
+  // ngAfterViewChecked() {
+  //   console.log('ngAfterViewChecked del master');
+  // }
+
+  // ngOnDestroy() {
+  //   console.log('ngOnDestroy del master');
   // }
 
 }

@@ -22,7 +22,7 @@
         </tr>
       </thead>
       <tbody>
-        <tr *ngFor="let usuario of usuarios"
+        <tr *ngFor="let usuario of usuarios$ | async"
             (click)="seleccionarUsuario(usuario)"
             [class.seleccionado]="usuario.id === usuarioSeleccionado?.id">
           <td>{{ usuario.id }}</td>
@@ -36,4 +36,4 @@
 </div>
 
 
-<app-usuarios-detalle *ngIf="usuarioSeleccionado" [usuario]="usuarioSeleccionado" (eliminarEvento)="eliminarUsuario($event)" ></app-usuarios-detalle>
+<app-usuarios-detalle *ngIf="usuarioSeleccionado" [usuario]="usuarioSeleccionado" mostrarBotonDelete="false" (eliminarEvento)="eliminarUsuario($event)" ></app-usuarios-detalle>

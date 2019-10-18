@@ -24,6 +24,12 @@ import { TemplateVariablesComponent } from './componentes/template-variables/tem
 import { FormTemplateComponent } from './componentes/form-template/form-template.component';
 import { ObservablesComponent } from './componentes/observables/observables.component';
 import { FormReactivoComponent } from './componentes/form-reactivo/form-reactivo.component';
+import { ImpurePipeComponent } from './componentes/impure-pipe/impure-pipe.component';
+import { Lazy1Module } from './modulos/lazy1/lazy1.module';
+import { Lazy2Module } from './modulos/lazy2/lazy2.module';
+import { Lazy3Module } from './modulos/lazy3/lazy3.module';
+import { Lazy4Module } from './modulos/lazy4/lazy4.module';
+import { Lazy5Module } from './modulos/lazy5/lazy5.module';
 
 @NgModule({
   declarations: [
@@ -46,14 +52,20 @@ import { FormReactivoComponent } from './componentes/form-reactivo/form-reactivo
     TemplateVariablesComponent,
     FormTemplateComponent,
     ObservablesComponent,
-    FormReactivoComponent
+    FormReactivoComponent,
+    ImpurePipeComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
+    //Lazy1Module,
+    //Lazy2Module,
+    //Lazy3Module,
+    //Lazy4Module,
+    Lazy5Module
   ],
   providers: [],
   bootstrap: [AppComponent]
